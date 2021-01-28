@@ -63,17 +63,17 @@
                 <td>จำนวน</td>
                 <td>ราคา</td>
                 <!-- PROBLEM 7.3 -->
-                <!-- <td>ลบ</td>  -->
+                <td>ลบ</td>
               </tr>
             </thead>
             <tbody></tbody>
             <!-- PROBLEM 7.4 -->
-            <!-- <tfoot>
+            <tfoot>
               <th></th>
               <th id="total-amount"></th>
               <th id="total-price"></th>
               <th></th>
-            </tfoot>   -->
+            </tfoot>
           </table>
         </div>
       </div>
@@ -127,10 +127,56 @@
       el.addEventListener('click', onSelectProduct)
     }
 
+    let num = 0;
+    let price = 0;
+
+    document.getElementById('total-amount').innerHTML = num.toFixed(2);
+    document.getElementById('total-price').innerHTML = price.toFixed(2);
+
     function onSelectProduct (event) {
       console.log(event.currentTarget)
       console.log(event.currentTarget.childNodes)
       // TODO: ...
+      alert(event.currentTarget.childNodes[1].innerHTML + " " + event.currentTarget.childNodes[3].innerHTML.substring(0, 5) )
+
+      num++;
+      price += parseInt(event.currentTarget.childNodes[3].innerHTML);
+
+      let parent = document.getElementById('cart');
+      let tr = document.createElement('tr');
+      let td1 = document.createElement('td');
+      let td2 = document.createElement('td');
+      let td3 = document.createElement('td');
+      let td4 = document.createElement('td');
+      let btn = document.createElement('button');
+
+      td1.innerHTML = event.currentTarget.childNodes[1].innerHTML;
+      td2.innerHTML = 1;
+      td3.innerHTML = event.currentTarget.childNodes[3].innerHTML.substring(0, 5);
+      td4.append(btn);
+      btn.innerHTML = 'DEL'
+
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tr.appendChild(td4);
+      parent.appendChild(tr);
+
+      btn.addEventListener('click', removebtn)
+
+      document.getElementById('total-amount').innerHTML = num.toFixed(2);
+      document.getElementById('total-price').innerHTML = price.toFixed(2);
+
     }
+
+    function removebtn(event){
+      event.currentTarget.parentNode.parentNode.remove();
+      num-- ;
+      price -= parseInt(event.currentTarget.parentNode.previousSibling.innerHTML);
+      document.getElementById('total-amount').innerHTML = num.toFixed(2);
+      document.getElementById('total-price').innerHTML = price.toFixed(2);
+    }
+
+    
   </script>
 </html>
