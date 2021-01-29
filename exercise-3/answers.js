@@ -79,30 +79,14 @@ function findBMI (input) {
     //     ...
     // ]
     // TODO: ให้คำนวณดัชนีมวลการ (Body Mass Index, bmi) ของแต่ละคน
-    return [
-        {
-            name : input[0].name,
-            height : input[0].height,
-            weight : input[0].weight,
-            bmi : (input[0].weight/((input[0].height/100)**2)).toFixed(2)
-        },
-        {
-            name : input[1].name,
-            height : input[1].height,
-            weight : input[1].weight,
-            bmi : (input[1].weight/((input[1].height/100)**2)).toFixed(2)
-        },
-        {
-            name : input[2].name,
-            height : input[2].height,
-            weight : input[2].weight,
-            bmi : (input[2].weight/((input[2].height/100)**2)).toFixed(2)
-        },
-        {
-            name : input[3].name,
-            height : input[3].height,
-            weight : input[3].weight,
-            bmi : (input[3].weight/((input[3].height/100)**2)).toFixed(2)
-        }
-    ]
+    let res = [];
+    for (let i = 0; i < input.length; i++){
+        res.push({
+            name : input[i].name,
+            height : input[i].height,
+            weight : input[i].weight,
+            bmi : (input[i].weight/((input[i].height/100)**2)).toFixed(2)
+        })
+    }
+    return res;
 }

@@ -14,24 +14,14 @@ function convertTemperature (input) {
         let cel = (fah - 32) * 5 / 9
         return Number(cel.toFixed(1))
     }
-    return [
-        {
-            date : input[0].date,
-            temperature : fah_to_celsius(input[0].temperature)
-        },
-        {
-            date : input[1].date,
-            temperature : fah_to_celsius(input[1].temperature)
-        },
-        {
-            date : input[2].date,
-            temperature : fah_to_celsius(input[2].temperature)
-        },
-        {
-            date : input[3].date,
-            temperature : fah_to_celsius(input[3].temperature)
-        }
-    ]
+    let res = [];
+    for(let i = 0; i < input.length; i++){
+        res.push({
+            date : input[i].date,
+            temperature : fah_to_celsius(input[i].temperature)
+        })
+    }
+    return res
 }
 
 function filterEvenNumber (input) {

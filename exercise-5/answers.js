@@ -1,7 +1,7 @@
 function insertBySplice (input) {
     // TODO: ให้ใช้ฟังก์ชัน .splice() ในการ **แทรก (insert)** สมาชิกเข้าไปใน Array  
     // เรียงลำดับตัวเลขให้ถูกต้อง
-    input.splice(3, 2, 3, 4);
+    input.splice(3, 0, 3);
     return input;
 }
 
