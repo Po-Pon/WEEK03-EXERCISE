@@ -38,14 +38,29 @@ function findTotal (input) {
 function findMinMax (input) {
     // input เป็น array ของตัวเลข
     // TODO: ให้หาตัวเลขที่มากที่สุดและน้อยที่สุดใน input
+    // input.sort((a,b) => a-b);
     // return{
     //     min : input[0],
     //     max : input[input.length - 1]
     // };
-    return {
-        min : Math.min.apply(Math, input),
-        max : Math.max.apply(Math, input)
-    };
+    // return {
+    //     min : Math.min(...input),
+    //     max : Math.max(...input)
+    // };
+    let min = input[0]
+    let max = input[0]
+    for(let i = 1; i < input.length; i++){
+        if(input[i] > max){
+            max = input[i]
+        }
+        else if(input[i] < min){
+            min = input[i]
+        }
+    }
+    return{
+        min : min,
+        max : max
+    }
 }
 
 function findBMI (input) {

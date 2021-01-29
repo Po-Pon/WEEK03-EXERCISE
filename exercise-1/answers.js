@@ -1,6 +1,6 @@
 function sayHello () {
     // TODO: return คำว่า "Hello world!"
-    return "Hello world"
+    return "Hello world!"
 }
 
 function isString (input) {
@@ -26,11 +26,7 @@ function isNumber (input) {
 function isArray (input) {
     // input อาจจะเป็น String, Array, Number, Object หรือ Function ก็ได้
     // TODO: ถ้า input เป็น Array ให้ return true, ถ้าไม่ใช่ return false
-    if (input instanceof Array) {
-        return true;
-    }else {
-        return false;
-    }
+    return input instanceof Array;
 }
 
 function isObject (input) {

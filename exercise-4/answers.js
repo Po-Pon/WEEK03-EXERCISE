@@ -1,7 +1,10 @@
 function mapToSquare (input) {
     // TODO ใช้ .map สร้าง array ที่เป็นเลขยกกำลังสองของ input
+    // return input.map(function(x) {
+    //     return Math.pow(x, 2)
+    // });
     return input.map(function(x) {
-        return Math.pow(x, 2)
+        return x**2
     });
 }
 
